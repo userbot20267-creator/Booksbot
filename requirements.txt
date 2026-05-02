@@ -1,7 +1,5 @@
-"""
-Smart Books Library Bot - requirements.txt
-جميع المكتبات المطلوبة للمشروع
-"""
+# Smart Books Library Bot - requirements.txt
+# جميع المكتبات المطلوبة للمشروع
 
 # Core Telegram Bot Framework
 aiogram==3.13.1
