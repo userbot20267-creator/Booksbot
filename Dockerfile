@@ -1,7 +1,6 @@
-"""
-Dockerfile
-Smart Books Library Bot
-"""
+# Dockerfile
+# Smart Books Library Bot
+
 # استخدام صورة Python الرسمية
 FROM python:3.11-slim
 
