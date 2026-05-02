@@ -107,7 +107,7 @@ class MarketTransaction(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
     # التفاصيل
-    metadata = Column(JSON, nullable=True)  # بيانات إضافية
+    extra_data = Column(JSON, nullable=True)  # بيانات إضافية (was 'metadata')
     notes = Column(Text, nullable=True)
 
     # Relationships
