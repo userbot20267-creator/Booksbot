@@ -31,7 +31,7 @@ class Notification(Base):
     title = Column(String(255), nullable=False)
     message = Column(Text, nullable=False)
     is_read = Column(Boolean, default=False)
-    metadata = Column(Text, nullable=True)  # JSON for additional data
+    extra_data = Column(Text, nullable=True)  # JSON for additional data (was 'metadata')
     created_at = Column(DateTime, default=datetime.utcnow)
     sent_at = Column(DateTime, nullable=True)
     failed_at = Column(DateTime, nullable=True)
