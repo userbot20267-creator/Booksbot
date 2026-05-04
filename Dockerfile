@@ -1,6 +1,6 @@
 # Dockerfile
 # Smart Books Library Bot
-
+# force rebuild 2026-05-04
 # استخدام صورة Python الرسمية
 FROM python:3.11-slim
 
