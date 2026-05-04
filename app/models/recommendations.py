@@ -39,7 +39,7 @@ class UserBehavior(Base):
     time_spent_seconds = Column(Integer, nullable=True)
 
     # بيانات إضافية
-    metadata = Column(JSON, nullable=True)
+    extra_data = Column(JSON, nullable=True)
 
     created_at = Column(DateTime, default=datetime.utcnow)
 
