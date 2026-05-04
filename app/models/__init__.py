@@ -9,7 +9,7 @@ from app.models.download_history import DownloadHistory
 from app.models.channel_setting import ForceJoinChannel, ChannelSetting
 from app.models.points import UserPoints, PointsTransaction
 from app.models.review import Review
-from app.models.referral import Referral
+# from app.models.referral import Referral  ⬅️ احذف هذا السطر تماماً
 from app.models.coupon import Coupon
 from app.models.pack import Pack
 from app.models.notification import Notification
@@ -35,11 +35,15 @@ from app.models.recommendations import (
 
 # Referral System Models
 from app.models.referral_system import (
+    Referral,                # ✅ أضف هذا الاستيراد
     ReferralCode,
     ReferralSettings,
     ReferralEarning,
     ReferralBadge,
     ReferralLevel,
+    ReferralLink,            # يمكن إضافتها إن احتجتها لاحقاً
+    ReferralEvent,           # يمكن إضافتها إن احتجتها لاحقاً
+    UserReferralBadge,
 )
 
 # Challenges Models
