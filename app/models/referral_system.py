@@ -24,7 +24,7 @@ class ReferralStatus(enum.Enum):
 
 
 class Referral(Base):
-    """نموذج الإحالة"""
+    """نموذج الإحالة - التعريف الموحد"""
     __tablename__ = "referrals"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -45,14 +45,17 @@ class Referral(Base):
 
     # الحالة والمكافآت
     status = Column(Enum(ReferralStatus), default=ReferralStatus.PENDING)
+    is_completed = Column(Boolean, default=False)  # مدمج من النموذج الآخر
 
     # المكافآت المكتسبة
     direct_bonus = Column(Integer, default=0)  # نقاط مباشرة للمحيل
     royalty_earnings = Column(Integer, default=0)  # أرباح من تحميلات الصديق
+    points_earned = Column(Integer, default=0)  # مدمج من النموذج الآخر
 
     # التواريخ
     created_at = Column(DateTime, default=datetime.utcnow)
     activated_at = Column(DateTime, nullable=True)  # عندما يكمل الصديق التسجيل
+    completed_at = Column(DateTime, nullable=True)  # مدمج من النموذج الآخر
     last_activity_at = Column(DateTime, nullable=True)
 
     # تتبع النشاط
@@ -214,7 +217,7 @@ class ReferralEvent(Base):
     points_earned = Column(Integer, default=0)
 
     # البيانات الإضافية
-    metadata = Column(JSON, nullable=True)
+    extra_data = Column(JSON, nullable=True)  # تم تغيير الاسم من metadata إلى extra_data
 
     created_at = Column(DateTime, default=datetime.utcnow)
 
