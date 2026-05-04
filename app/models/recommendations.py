@@ -4,7 +4,7 @@ Recommendations Models - نماذج التوصيات
 """
 import enum
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, Enum, DateTime, Float, ForeignKey, JSON, Text
+from sqlalchemy import Column, Integer, String, Enum, DateTime, Float, ForeignKey, JSON, Text, Boolean
 from sqlalchemy.orm import relationship
 from app.database import Base
 
