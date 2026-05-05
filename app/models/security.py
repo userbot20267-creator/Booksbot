@@ -4,7 +4,7 @@ Security & Audit Models - نماذج الأمان والتدقيق
 import enum
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, Enum, DateTime, Boolean, ForeignKey, JSON, Text
-# أزلنا IPAddress من الاستيراد
+# IPAddress removed from import
 from sqlalchemy.orm import relationship
 from app.database import Base
 
@@ -75,7 +75,7 @@ class AuditLog(Base):
     # البيانات
     old_value = Column(JSON, nullable=True)
     new_value = Column(JSON, nullable=True)
-    metadata = Column(JSON, nullable=True)
+    extra_data = Column(JSON, nullable=True)  # تم تغيير الاسم من metadata
 
     # معلومات الاتصال
     ip_address = Column(String(50), nullable=True)
