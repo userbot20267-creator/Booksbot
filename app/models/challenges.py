@@ -122,8 +122,8 @@ class ChallengeParticipation(Base):
     reward_claimed = Column(Boolean, default=False)
     reward_claimed_at = Column(DateTime, nullable=True)
 
-    # بيانات إضافية
-    metadata = Column(JSON, nullable=True)
+    # بيانات إضافية - تم تغيير الاسم من metadata إلى extra_data
+    extra_data = Column(JSON, nullable=True)
 
     last_updated = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -187,8 +187,8 @@ class UserBadge(Base):
     earned_from_challenge_id = Column(Integer, ForeignKey("challenges.id"), nullable=True)
     earned_from_type = Column(String(50), nullable=True)  # challenge, milestone, special, purchase
 
-    # بيانات إضافية
-    metadata = Column(JSON, nullable=True)
+    # بيانات إضافية - تم تغيير الاسم من metadata إلى extra_data
+    extra_data = Column(JSON, nullable=True)
 
     # Relationships
     user = relationship("User", backref="badges")
