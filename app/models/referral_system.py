@@ -72,7 +72,23 @@ class Referral(Base):
     def __repr__(self):
         return f"<Referral {self.id} referrer={self.referrer_id}>"
 
+class ReferralCode(Base):
+    """نموذج كود الإحالة"""
+    __tablename__ = "referral_codes"
+    __table_args__ = {'extend_existing': True}
 
+    id = Column(Integer, primary_key=True, index=True)
+    code = Column(String(20), unique=True, nullable=False, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    
+    created_at = Column(DateTime, default=datetime.utcnow)
+    expires_at = Column(DateTime, nullable=True)
+    is_active = Column(Boolean, default=True)
+    uses_count = Column(Integer, default=0)
+    max_uses = Column(Integer, nullable=True)
+
+    def __repr__(self):
+        return f"<ReferralCode {self.code}>"
 class ReferralSettings(Base):
     """إعدادات برنامج الإحالة"""
     __tablename__ = "referral_settings"
