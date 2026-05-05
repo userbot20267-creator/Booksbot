@@ -26,8 +26,10 @@ class ReferralStatus(enum.Enum):
 class Referral(Base):
     """نموذج الإحالة - التعريف الموحد"""
     __tablename__ = "referrals"
+    __table_args__ = {'extend_existing': True}  # 👈 أضف هذا السطر
 
     id = Column(Integer, primary_key=True, index=True)
+    # ... باقي الكود كما هو
 
     # معلومات المحيل
     referrer_id = Column(Integer, ForeignKey("users.id"), nullable=False)
