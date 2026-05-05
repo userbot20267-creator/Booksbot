@@ -16,7 +16,6 @@ from aiogram.filters.callback_data import CallbackData
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.enums import ChatType
 from aiogram.dispatcher.middlewares.base import BaseMiddleware
-from aiogram.dispatcher.handler import Handler
 
 from app.database import SessionLocal
 from app.services.user_service import UserService
