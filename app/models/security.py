@@ -3,7 +3,8 @@ Security & Audit Models - نماذج الأمان والتدقيق
 """
 import enum
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, Enum, DateTime, Boolean, ForeignKey, JSON, Text, IPAddress
+from sqlalchemy import Column, Integer, String, Enum, DateTime, Boolean, ForeignKey, JSON, Text
+# أزلنا IPAddress من الاستيراد
 from sqlalchemy.orm import relationship
 from app.database import Base
 
