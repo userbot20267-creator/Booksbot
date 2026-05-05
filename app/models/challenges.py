@@ -295,3 +295,5 @@ class LeaderboardEntry(Base):
 
     def __repr__(self):
         return f"<LeaderboardEntry user={self.user_id} rank={self.rank}>"
+# في نهاية الملف، بعد تعريف LeaderboardEntry
+Leaderboard = LeaderboardEntry
