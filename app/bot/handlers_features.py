@@ -5,7 +5,8 @@ Handlers Features Module - جميع المعالجات الجديدة
 import os
 import io
 import csv
-from typing import Optional
+# ابحث عن السطر الأول وقم بتغييره إلى:
+from typing import Union, Callable, Any, Awaitable, Dict
 from aiogram import Router, F, Bot
 from aiogram.types import Message, CallbackQuery, Update
 from aiogram.filters import Command, CommandStart
@@ -63,7 +64,13 @@ router = Router()
 class ForceJoinMiddleware(BaseMiddleware):
     """ميدلوير لفحص الاشتراك الإجباري"""
 
-    async def __call__(self, handler: Handler, event: Update, data: dict) -> any:
+async def __call__(
+        self,
+        handler: Callable[[Update, Dict[str, Any]], Awaitable[Any]],
+        event: Update,
+        data: Dict[str, Any]
+    ) -> Any:
+        
         # استثناء الأوامر الإدارية والبوت
         if isinstance(event, Message):
             if event.text and event.text.startswith('/'):
