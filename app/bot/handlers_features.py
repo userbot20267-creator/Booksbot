@@ -6,9 +6,9 @@ import os
 import io
 import csv
 # ابحث عن السطر الأول وقم بتغييره إلى:
-from typing import Union, Callable, Any, Awaitable, Dict
+from typing import Union, Callable, Any, Awaitable, Dict, Optional
 from aiogram import Router, F, Bot
-from aiogram.types import Message, CallbackQuery, Update
+from aiogram.types import Message, CallbackQuery, Update, TelegramObject
 from aiogram.filters import Command, CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
@@ -64,10 +64,10 @@ router = Router()
 class ForceJoinMiddleware(BaseMiddleware):
     """ميدلوير لفحص الاشتراك الإجباري"""
 
-async def __call__(
+    async def __call__(
         self,
-        handler: Callable[[Update, Dict[str, Any]], Awaitable[Any]],
-        event: Update,
+        handler: Callable[[TelegramObject, Dict[str, Any]], Awaitable[Any]],
+        event: TelegramObject,
         data: Dict[str, Any]
     ) -> Any:
         
